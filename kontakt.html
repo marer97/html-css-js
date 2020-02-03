@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HardTron</title>
+  <link href="css/flexboxgrid.css" rel="stylesheet">
+  <link href="css/index.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/font-awesome.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+<body>
+  <header class="header">
+		<h1 class="logo"><a href="index.html">HardTron</a></h1>
+      <ul class="main-nav">
+          <li><a href="index.html">Početna</a></li>
+          <li><a href="onama.html">O nama</a></li>
+          <li><a href="galerija.html">Galerija</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+          <link href="css/header.css" rel="stylesheet" />
+      </ul>
+  </header> 
+  <div class="proizvodi">
+    <div class="text-center">
+      <h2>Kontakt forma</h2>
+      <p>Ako vam je potrebna neka informacija, nemate brige , tu smo za vas !!! </p>
+    </div>
+    <div class="container">
+		<form id="forma" method="post" action="">
+			<div class="form-group col-sm-6">
+                <label for="ime" class="h4">Ime i prezime</label>
+                <input name="ime" type="text" class="form-control" id="ime" placeholder="Unesi ime i prezime" required>
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="email" class="h4">Email</label>
+                <input name="email" type="email" class="form-control" id="email" placeholder="Unesi email" email >
+            </div>
+			<div class="form-group col-sm-12">
+				<label for="komponenta" class="h4 ">Komponenta</label>
+                <select name="komponenta" class="form-control" id="komponenta" required>
+					<option value="maticnu plocu">Maticna ploca</option>
+					<option value="procesor">Procesor</option>
+					<option value="kuler">Kuler</option>
+					<option value="graficku kartu">Graficka karta</option>
+					<option value="kuciste">Kuciste</option>
+				</select>
+			</div>
+			<div class="form-group col-sm-12">
+                <label for="tel" class="h4">Telefon</label>
+                <input name="tel" type="number" class="form-control" id="tel" placeholder="Unesi telefon" required >
+            </div>
+			<div class="form-group col-sm-12">
+				<label for="poruka" class="h4 ">Pitanje</label>
+				<textarea name="poruka" id="poruka" class="form-control" rows="5" placeholder="Unesi poruku" required></textarea>
+			</div>
+				<input class="btn btn-info" type="submit" value="Postavi" />
+	</form>
+      
+    </div>
+	
+  </div>
+  <footer ">
+    <div class="container">
+      <div class="social-icon">
+        <div class="col-md-4">
+          <ul class="social-network">
+            <li><a href="#" class="fb prelaz" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#" class="twitter prelaz" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#" class="instagram prelaz" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="#" class="linkedin prelaz" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="#" class="ytube prelaz" title="You Tube"><i class="fa fa-youtube-play"></i></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-md-offset-4">
+        <div class="prava">
+          &copy; HardTron tim. Sva prava zadržana.
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery.validate.min.js"></script>
+	<script src="js/poruke.js"></script>
+	<script type="text/javascript">
+		$.validator.setDefaults({
+			submitHandler: function() {
+			var vrednost = $('#komponenta').val();
+			var dat = new Date();
+			dat.setDate(dat.getDate() + 3); 
+			var dd = dat.getDate();
+			var mm = dat.getMonth() + 1;
+			var y = dat.getFullYear();
+
+			var formatirano = dd + '/'+ mm + '/'+ y;
+			var text = "Izabrali ste ";
+			var text2 = ". Nas specijalista Vlada ce vam se javiti u roku od tri dana, najkasnije do";
+			var text3 = ". Zelimo vam prijatan dan!";
+			var res = text.concat(vrednost,text2,formatirano,text3);
+			  alert(res);	
+			}
+		});
+
+		$(document).ready(function() {
+			$("#forma").validate();
+		});
+	</script>
+	
+</body>
+
+</html>
